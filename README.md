@@ -1,27 +1,31 @@
 # HiTechCloud Omnichannel SDK
 
+> **English** | [Tiếng Việt](README.vi.md)
+
+---
+
 [![CI](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> SDK đa ngôn ngữ chính thức cho [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn) — gom hội thoại **Facebook, Instagram, Zalo, TikTok, Website** vào một REST API hợp nhất: đọc, trả lời, gắn nhãn, phân công nhân viên, chốt đơn và nhận webhook thời gian thực.
+> Official multi-language SDK for the [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn) — brings **Facebook, Instagram, Zalo, TikTok and Website** conversations into one unified REST API: read, reply, tag, assign agents, close orders and receive real-time webhooks.
 
-## Tổng quan
+## Overview
 
-Thay vì tích hợp riêng lẻ Graph API của Facebook, Zalo OA API, TikTok Business và widget chat website, bạn kết nối một lần rồi dùng một bộ REST API thống nhất. Kho này cung cấp SDK cho 5 ngôn ngữ, cùng đặc tả OpenAPI, tài liệu tiếng Việt và một máy chủ MCP.
+Instead of integrating Facebook Graph API, Zalo OA API, TikTok Business and the website chat widget separately, you connect once and use one unified REST API. This repository provides SDKs for five languages, an OpenAPI specification, documentation in English and Vietnamese, and an MCP server.
 
-| Hạng mục | Giá trị |
+| Item | Value |
 |---|---|
-| Host Production | `https://omni.hitechcloud.vn` |
-| Host Sandbox | `https://omni-sandbox.hitechcloud.vn` |
+| Production host | `https://omni.hitechcloud.vn` |
+| Sandbox host | `https://omni-sandbox.hitechcloud.vn` |
 | Base path | `/v1` |
-| Xác thực | Bearer access token |
-| Định danh | ULID (`chn_…`, `cnv_…`, `msg_…`, `cus_…`, `ord_…`) |
-| Phản hồi | Envelope `{ status, data, meta }` |
-| Webhook | HMAC-SHA256 qua header `X-HTC-Signature` |
+| Authentication | Bearer access token |
+| Identifiers | ULID (`chn_…`, `cnv_…`, `msg_…`, `cus_…`, `ord_…`) |
+| Response | Envelope `{ status, data, meta }` |
+| Webhook | HMAC-SHA256 via the `X-HTC-Signature` header |
 
-## Ngôn ngữ hỗ trợ
+## Supported languages
 
-| Ngôn ngữ | Gói | Đường dẫn |
+| Language | Package | Path |
 |---|---|---|
 | Node.js / TypeScript | `@hitechcloudvn/omnichannel-sdk` (npm) | [`sdk/nodejs`](sdk/nodejs) |
 | Python | `hitechcloud-omnichannel` (PyPI) | [`sdk/python`](sdk/python) |
@@ -29,11 +33,11 @@ Thay vì tích hợp riêng lẻ Graph API của Facebook, Zalo OA API, TikTok B
 | Go | `github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go` | [`sdk/go`](sdk/go) |
 | Java | `vn.hitechcloud:omnichannel-sdk` (Maven) | [`sdk/java`](sdk/java) |
 
-## Nhóm tài nguyên
+## Resource groups
 
 `channels` · `conversations` · `messages` · `media` · `customers` · `tags` · `users` · `orders` · `webhooks` · `widget` · `stats` · `sandbox` · `account`.
 
-## Bắt đầu nhanh
+## Quick start
 
 ### Node.js / TypeScript
 ```ts
@@ -41,7 +45,7 @@ import { Omnichannel } from "@hitechcloudvn/omnichannel-sdk";
 
 const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN! });
 const channels = await omni.channels.list({ platform: "facebook" });
-await omni.messages.sendText("cnv_01HZABCDEF", "Chào anh/chị!");
+await omni.messages.sendText("cnv_01HZABCDEF", "Hello!");
 ```
 
 ### Python
@@ -50,30 +54,30 @@ from hitechcloud_omnichannel import Omnichannel
 
 omni = Omnichannel(access_token="YOUR_ACCESS_TOKEN")
 omni.channels.list(platform="facebook")
-omni.messages.send_text("cnv_01HZABCDEF", "Chào anh/chị!")
+omni.messages.send_text("cnv_01HZABCDEF", "Hello!")
 ```
 
 ### PHP
 ```php
 $omni = new HiTechCloud\Omnichannel\Client(getenv('OMNI_ACCESS_TOKEN'));
-$omni->messages()->sendText('cnv_01HZABCDEF', 'Chào anh/chị!');
+$omni->messages()->sendText('cnv_01HZABCDEF', 'Hello!');
 ```
 
 ### Go
 ```go
 c := omnichannel.NewClient(omnichannel.WithAccessToken(os.Getenv("OMNI_ACCESS_TOKEN")))
-c.Messages.SendText("cnv_01HZABCDEF", "Chào anh/chị!", "")
+c.Messages.SendText("cnv_01HZABCDEF", "Hello!", "")
 ```
 
 ### Java
 ```java
 OmnichannelClient omni = new OmnichannelClient(System.getenv("OMNI_ACCESS_TOKEN"));
-omni.messages().sendText("cnv_01HZABCDEF", "Chào anh/chị!", null);
+omni.messages().sendText("cnv_01HZABCDEF", "Hello!", null);
 ```
 
-## Webhook (X-HTC-Signature)
+## Webhooks (X-HTC-Signature)
 
-Mọi request webhook mang header `X-HTC-Signature` là HMAC-SHA256 của thân request, ký bằng `signing_secret`. Mỗi SDK có hàm xác minh sẵn:
+Every webhook request carries an `X-HTC-Signature` header: the HMAC-SHA256 of the request body, signed with your `signing_secret`. Each SDK ships a ready-made verification helper:
 
 ```ts
 import { verifySignature } from "@hitechcloudvn/omnichannel-sdk";
@@ -85,18 +89,18 @@ from hitechcloud_omnichannel import verify_signature
 verify_signature(raw_body, request.headers["X-HTC-Signature"], signing_secret)
 ```
 
-Sự kiện: `message.created`, `message.updated`, `conversation.created`, `conversation.updated`, `order.created`, `order.updated`, `channel.connected`, `channel.disconnected`, `post.created`, `post.updated`, `subscription.updated`.
+Events: `message.created`, `message.updated`, `conversation.created`, `conversation.updated`, `order.created`, `order.updated`, `channel.connected`, `channel.disconnected`, `post.created`, `post.updated`, `subscription.updated`.
 
-## Tài liệu
+## Documentation
 
-- [Bắt đầu nhanh](docs/getting-started.md)
-- [Xác thực](docs/authentication.md)
-- [Tham chiếu API](docs/api-reference.md)
-- [Xử lý lỗi](docs/error-handling.md)
-- [Phân trang & Rate limit](docs/rate-limiting.md)
-- [Đặc tả OpenAPI](openapi.json)
-- [Máy chủ MCP](mcp/README.md)
+- [Quick start](docs/getting-started.md)
+- [Authentication](docs/authentication.md)
+- [API reference](docs/api-reference.md)
+- [Error handling](docs/error-handling.md)
+- [Pagination & rate limiting](docs/rate-limiting.md)
+- [OpenAPI specification](openapi.json)
+- [MCP server](mcp/README.md)
 
-## Giấy phép
+## License
 
 [MIT](LICENSE) © HiTechCloud Vietnam

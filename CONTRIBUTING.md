@@ -1,14 +1,18 @@
-# Đóng góp cho HiTechCloud Omnichannel SDK
+# Contributing
 
-Cảm ơn bạn đã quan tâm đóng góp!
+> **English** | [Tiếng Việt](CONTRIBUTING.vi.md)
 
-## Chuẩn bị môi trường
+---
 
-1. Clone kho này.
-2. Chọn SDK ngôn ngữ trong `sdk/`.
-3. Cài dependencies và chạy test.
+Thank you for your interest in contributing!
 
-| Ngôn ngữ | Cài | Test |
+## Environment setup
+
+1. Clone this repository.
+2. Pick the language SDK under `sdk/`.
+3. Install dependencies and run the tests.
+
+| Language | Install | Test |
 |---|---|---|
 | Python | `pip install -e sdk/python[dev]` | `pytest sdk/python` |
 | Node.js | `cd sdk/nodejs && npm install && npm run build` | `npm test` |
@@ -16,27 +20,27 @@ Cảm ơn bạn đã quan tâm đóng góp!
 | Go | `cd sdk/go` | `go test ./...` |
 | Java | `cd sdk/java` | `mvn test` |
 
-## Nguyên tắc
+## Guidelines
 
-- Mọi phương thức phải dựa trên một endpoint có thật trong `openapi.json`.
-- Giữ cấu trúc tài nguyên nhất quán giữa các ngôn ngữ (channels, conversations, messages, media, customers, tags, users, orders, webhooks, widget, stats, sandbox, account).
-- Thêm docstring/JSDoc/PHPDoc cho phương thức công khai.
-- Tuân theo quy ước của từng ngôn ngữ; chạy formatter (`gofmt`, `prettier`, ...).
+- Every method must map to a real endpoint in `openapi.json`.
+- Keep the resource structure consistent across languages (channels, conversations, messages, media, customers, tags, users, orders, webhooks, widget, stats, sandbox, account).
+- Add docstring/JSDoc/PHPDoc for public methods.
+- Follow each language's conventions; run the formatter (`gofmt`, `prettier`, ...).
 
-## Thêm một ngôn ngữ mới
+## Adding a new language
 
-1. Tạo thư mục dưới `sdk/<ngôn-ngữ>` với Client + Resources + errors + webhook verify + README + manifest.
-2. Thêm test cơ bản (khởi tạo client + xác minh chữ ký webhook).
-3. Thêm ví dụ trong `examples/<ngôn-ngữ>`.
-4. Cập nhật `README.md` và `CHANGELOG.md`.
+1. Create a directory under `sdk/<language>` with Client + Resources + errors + webhook verify + README + manifest.
+2. Add basic tests (client construction + webhook signature verification).
+3. Add examples under `examples/<language>`.
+4. Update `README.md` and `CHANGELOG.md`.
 
-## Pull Request
+## Pull requests
 
-1. Fork và tạo nhánh tính năng.
-2. Thêm test cho thay đổi.
-3. Đảm bảo toàn bộ test qua.
-4. Gửi PR mô tả rõ thay đổi.
+1. Fork and create a feature branch.
+2. Add tests for your changes.
+3. Make sure all tests pass.
+4. Open a PR with a clear description of the change.
 
-## Giấy phép
+## License
 
-Khi đóng góp, bạn đồng ý rằng phần đóng góp được cấp phép theo giấy phép MIT.
+By contributing, you agree that your contributions are licensed under the MIT license.

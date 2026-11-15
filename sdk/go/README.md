@@ -1,8 +1,12 @@
 # HiTechCloud Omnichannel — Go SDK
 
-SDK Go chính thức cho [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn).
+> **English** | [Tiếng Việt](README.vi.md)
 
-## Cài đặt
+---
+
+Official Go SDK for the [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn).
+
+## Installation
 
 ```bash
 go get github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
@@ -12,7 +16,7 @@ go get github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
 import omnichannel "github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go"
 ```
 
-## Khởi tạo
+## Setup
 
 ```go
 c := omnichannel.NewClient(
@@ -21,22 +25,22 @@ c := omnichannel.NewClient(
 )
 ```
 
-## Ví dụ nhanh
+## Quick example
 
 ```go
-// Danh sách kênh
+// List channels
 env, err := c.Channels.List(omnichannel.Params(map[string]string{"platform": "facebook"}))
 
-// Gửi tin nhắn
-_, err = c.Messages.SendText("cnv_01HZABCDEF", "Chào anh/chị!", "")
+// Send a message
+_, err = c.Messages.SendText("cnv_01HZABCDEF", "Hello!", "")
 
-// Gắn nhãn + phân công
+// Tag + assign
 _, _ = c.Conversations.AddTags("cnv_01HZABCDEF", []string{"da-chot-don"})
 _, _ = c.Conversations.Assign("cnv_01HZABCDEF", map[string]interface{}{
     "assignee_ids": []string{"usr_01HZNV01"},
 })
 
-// Tạo đơn hàng
+// Create an order
 _, _ = c.Orders.Create(map[string]interface{}{
     "conversation_id": "cnv_01HZABCDEF",
     "items": []map[string]interface{}{
@@ -45,7 +49,7 @@ _, _ = c.Orders.Create(map[string]interface{}{
 })
 ```
 
-## Đọc dữ liệu từ Envelope
+## Reading data from the envelope
 
 ```go
 env, _ := c.Channels.List(nil)
@@ -53,7 +57,7 @@ var channels []map[string]interface{}
 _ = env.DecodeData(&channels)
 ```
 
-## Webhook (HMAC-SHA256, header `X-HTC-Signature`)
+## Webhooks (HMAC-SHA256, header `X-HTC-Signature`)
 
 ```go
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -63,19 +67,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "invalid signature", http.StatusBadRequest)
         return
     }
-    // xử lý idempotent theo event_id
+    // handle idempotently by event_id
     w.WriteHeader(http.StatusOK)
 }
 ```
 
-## Xử lý lỗi
+## Error handling
 
 ```go
 _, err := c.Messages.SendText("cnv_01HZABCDEF", "...", "")
 if apiErr, ok := err.(*omnichannel.APIError); ok {
     switch apiErr.Kind() {
     case omnichannel.KindMessagingWindow:
-        // dùng template
+        // use a template
     case omnichannel.KindRateLimit:
         time.Sleep(time.Duration(apiErr.RetryAfter) * time.Second)
     }

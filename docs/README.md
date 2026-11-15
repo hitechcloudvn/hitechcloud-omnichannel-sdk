@@ -1,36 +1,40 @@
-# Tài liệu HiTechCloud Omnichannel SDK
+# HiTechCloud Omnichannel SDK Documentation
 
-SDK đa ngôn ngữ chính thức cho [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn) — gom hội thoại Facebook, Instagram, Zalo, TikTok và Website vào một REST API hợp nhất.
+> **English** | [Tiếng Việt](README.vi.md)
 
-## Mục lục
+---
 
-- [Bắt đầu nhanh](getting-started.md)
-- [Xác thực](authentication.md)
-- [Tham chiếu API](api-reference.md)
-- [Xử lý lỗi](error-handling.md)
-- [Phân trang & Rate limit](rate-limiting.md)
+Official multi-language SDK for the [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn) — brings Facebook, Instagram, Zalo, TikTok and Website conversations into one unified REST API.
 
-## Liên kết
+## Table of contents
 
-- [Đặc tả OpenAPI](../openapi.json)
-- [Kho GitHub](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk)
-- [Tài liệu API](https://developers.hitechcloud.vn/tai-lieu/omnichannel/tong-quan)
+- [Quick start](getting-started.md)
+- [Authentication](authentication.md)
+- [API reference](api-reference.md)
+- [Error handling](error-handling.md)
+- [Pagination & rate limiting](rate-limiting.md)
 
-## Thông tin chung
+## Links
 
-| Hạng mục | Giá trị |
+- [OpenAPI specification](../openapi.json)
+- [GitHub repository](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk)
+- [API documentation](https://developers.hitechcloud.vn/tai-lieu/omnichannel/tong-quan)
+
+## General
+
+| Item | Value |
 |---|---|
-| Host Production | `https://omni.hitechcloud.vn` |
-| Host Sandbox | `https://omni-sandbox.hitechcloud.vn` |
+| Production host | `https://omni.hitechcloud.vn` |
+| Sandbox host | `https://omni-sandbox.hitechcloud.vn` |
 | Base path | `/v1` |
-| Xác thực | Bearer access token |
-| Định danh | ULID (ví dụ `cnv_01HZABCDEF`) |
-| Phản hồi | Envelope `{ status, data, meta }` |
-| Webhook | Chữ ký HMAC-SHA256 qua header `X-HTC-Signature` |
+| Authentication | Bearer access token |
+| Identifiers | ULID (e.g. `cnv_01HZABCDEF`) |
+| Response | Envelope `{ status, data, meta }` |
+| Webhook | HMAC-SHA256 signature via the `X-HTC-Signature` header |
 
-## Ngôn ngữ hỗ trợ
+## Supported languages
 
-| Ngôn ngữ | Gói |
+| Language | Package |
 |---|---|
 | Node.js / TypeScript | `@hitechcloudvn/omnichannel-sdk` (npm) |
 | Python | `hitechcloud-omnichannel` (PyPI) |

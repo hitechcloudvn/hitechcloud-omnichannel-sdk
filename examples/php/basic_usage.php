@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ví dụ cơ bản — HiTechCloud Omnichannel PHP SDK
+ * Basic example — HiTechCloud Omnichannel PHP SDK / Ví dụ cơ bản — HiTechCloud Omnichannel PHP SDK
  *
  *   export OMNI_ACCESS_TOKEN=your-access-token
  *   php basic_usage.php
@@ -14,7 +14,7 @@ use HiTechCloud\Omnichannel\MessagingWindowClosedException;
 
 $omni = new Client(getenv('OMNI_ACCESS_TOKEN'));
 
-// 1) Liệt kê kênh Facebook đã kết nối
+// 1) List connected Facebook channels / Liệt kê kênh Facebook đã kết nối
 $channels = $omni->channels()->list(['platform' => 'facebook', 'connected' => 'true']);
 foreach ($channels['data'] ?? [] as $chn) {
     echo $chn['id'] . ' | ' . $chn['platform'] . ' | ' . ($chn['name'] ?? '') . PHP_EOL;
@@ -26,14 +26,14 @@ if (empty($data)) {
 }
 $channelId = $data[0]['id'];
 
-// 2) Đọc hội thoại chưa đọc
+// 2) Read unread conversations / Đọc hội thoại chưa đọc
 $convs = $omni->conversations()->list([
     'channel_id' => $channelId,
     'unread_first' => 'true',
     'per_page' => 20,
 ]);
 
-// 3) Trả lời hội thoại đầu tiên
+// 3) Reply to the first conversation / Trả lời hội thoại đầu tiên
 $convList = $convs['data'] ?? [];
 if (!empty($convList)) {
     $convId = $convList[0]['id'];
@@ -46,6 +46,6 @@ if (!empty($convList)) {
     }
 }
 
-// 4) Thống kê theo kênh
+// 4) Per-channel statistics / Thống kê theo kênh
 $stats = $omni->stats()->channels('2026-10-01', '2026-10-31');
 echo 'Thống kê: ' . json_encode($stats['data'] ?? []) . PHP_EOL;

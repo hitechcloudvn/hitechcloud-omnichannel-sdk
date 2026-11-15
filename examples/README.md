@@ -1,16 +1,20 @@
-# Ví dụ sử dụng
+# Usage examples
 
-Mỗi thư mục con là ví dụ cho một ngôn ngữ. Trước khi chạy, cài SDK tương ứng và đặt biến môi trường `OMNI_ACCESS_TOKEN`.
+> **English** | [Tiếng Việt](README.vi.md)
 
-| Ngôn ngữ | Tệp | Chạy |
+---
+
+Each subdirectory holds an example for one language. Before running, install the corresponding SDK and set the `OMNI_ACCESS_TOKEN` environment variable.
+
+| Language | Files | Run |
 |---|---|---|
 | Node.js | `nodejs/basic_usage.js`, `nodejs/webhook_server.js` | `node basic_usage.js` |
 | Python | `python/basic_usage.py` | `python basic_usage.py` |
 | PHP | `php/basic_usage.php` | `php basic_usage.php` |
 | Go | `go/basic_usage.go` | `go run basic_usage.go` |
-| Java | `java/BasicUsage.java` | biên dịch với `omnichannel-sdk` trên classpath |
+| Java | `java/BasicUsage.java` | compile with `omnichannel-sdk` on the classpath |
 
-Tất cả ví dụ đều dùng Production. Để thử nghiệm an toàn, chuyển sang Sandbox:
+All examples use Production. For safe experimentation, switch to Sandbox:
 
 - Node: `new Omnichannel({ accessToken, sandbox: true })`
 - Python: `Omnichannel(access_token=..., sandbox=True)`

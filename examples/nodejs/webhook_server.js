@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Ví dụ webhook — xác minh chữ ký X-HTC-Signature rồi xử lý sự kiện.
+ * Webhook example — verify the X-HTC-Signature then handle events. / Ví dụ webhook — xác minh chữ ký X-HTC-Signature rồi xử lý sự kiện.
  *
  *   export SIGNING_SECRET=whsec_...
  *   node webhook_server.js
@@ -10,7 +10,7 @@ const http = require("http");
 const { verifySignature } = require("@hitechcloudvn/omnichannel-sdk");
 
 const SIGNING_SECRET = process.env.SIGNING_SECRET || "";
-const seen = new Set(); // chống xử lý trùng theo event_id (at-least-once)
+const seen = new Set(); // prevent duplicate processing by event_id (at-least-once) / chống xử lý trùng theo event_id (at-least-once)
 
 const server = http.createServer((req, res) => {
   if (req.method !== "POST" || req.url !== "/htc/webhook") {

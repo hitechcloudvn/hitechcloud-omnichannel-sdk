@@ -1,17 +1,21 @@
-# Bắt đầu nhanh
+# Quick start
 
-Hướng dẫn này giúp bạn đi từ số 0 đến khi gửi được một tin nhắn trả lời khách qua HiTechCloud Omnichannel API.
+> **English** | [Tiếng Việt](getting-started.vi.md)
 
-## 1. Lấy Access Token
+---
 
-1. Đăng nhập `https://omni.hitechcloud.vn`.
-2. Vào **Cài đặt → API & Tích hợp → Access Token**.
-3. Nhấn **+ Tạo token mới**, chọn phạm vi quyền (scopes) rồi bấm Tạo.
-4. Sao chép `access_token` và lưu vào biến môi trường. Token chỉ hiển thị một lần.
+This guide takes you from zero to sending your first customer reply through the HiTechCloud Omnichannel API.
 
-> Access Token cho phép đọc và trả lời tin nhắn khách hàng. Tuyệt đối không nhúng vào mã frontend hay commit lên Git — chỉ gọi API từ phía server.
+## 1. Get an access token
 
-## 2. Cài đặt SDK
+1. Sign in to `https://omni.hitechcloud.vn`.
+2. Go to **Settings → API & Integration → Access Token**.
+3. Click **+ Create new token**, choose the scopes, then click Create.
+4. Copy the `access_token` and store it in an environment variable. The token is shown only once.
+
+> An access token lets you read and reply to customer messages. Never embed it in frontend code or commit it to Git — call the API from the server side only.
+
+## 2. Install the SDK
 
 ### Node.js / TypeScript
 ```bash
@@ -42,7 +46,7 @@ go get github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
 </dependency>
 ```
 
-## 3. Gọi API đầu tiên
+## 3. Make your first API call
 
 ### Node.js
 ```ts
@@ -68,19 +72,19 @@ $omni = new HiTechCloud\Omnichannel\Client(getenv('OMNI_ACCESS_TOKEN'));
 print_r($omni->channels()->list(['platform' => 'facebook']));
 ```
 
-## 4. Gửi tin nhắn trả lời
+## 4. Send a reply
 
 ```python
-omni.messages.send_text("cnv_01HZABCDEF", "Chào anh/chị, HiTechCloud hỗ trợ gì cho mình ạ?")
+omni.messages.send_text("cnv_01HZABCDEF", "Hello! How can HiTechCloud help you today?")
 ```
 
 ```ts
-await omni.messages.sendText("cnv_01HZABCDEF", "Chào anh/chị!");
+await omni.messages.sendText("cnv_01HZABCDEF", "Hello!");
 ```
 
-## 5. Môi trường Sandbox
+## 5. Sandbox environment
 
-Mọi SDK đều cho phép chuyển sang Sandbox (`https://omni-sandbox.hitechcloud.vn`) để thử nghiệm an toàn mà không gửi tin thật:
+Every SDK can switch to Sandbox (`https://omni-sandbox.hitechcloud.vn`) for safe experimentation without sending real messages:
 
 - Node: `new Omnichannel({ accessToken, sandbox: true })`
 - Python: `Omnichannel(access_token=..., sandbox=True)`
@@ -88,4 +92,4 @@ Mọi SDK đều cho phép chuyển sang Sandbox (`https://omni-sandbox.hitechcl
 - Go: `omnichannel.NewClient(omnichannel.WithAccessToken(...), omnichannel.WithSandbox())`
 - Java: `new OmnichannelClient(token, true)`
 
-Tiếp theo: [Xác thực](authentication.md) · [Tham chiếu API](api-reference.md) · [Xử lý lỗi](error-handling.md).
+Next: [Authentication](authentication.md) · [API reference](api-reference.md) · [Error handling](error-handling.md).

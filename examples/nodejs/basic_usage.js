@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Ví dụ cơ bản — HiTechCloud Omnichannel Node.js SDK
+ * Basic example — HiTechCloud Omnichannel Node.js SDK / Ví dụ cơ bản — HiTechCloud Omnichannel Node.js SDK
  *
  *   export OMNI_ACCESS_TOKEN=your-access-token
  *   node basic_usage.js
@@ -11,18 +11,18 @@ const { Omnichannel, MessagingWindowClosedError } = require("@hitechcloudvn/omni
 async function main() {
   const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN });
 
-  // 1) Liệt kê kênh Facebook đã kết nối
+  // 1) List connected Facebook channels / Liệt kê kênh Facebook đã kết nối
   const channels = await omni.channels.list({ platform: "facebook", connected: true });
   for (const chn of channels.data || []) {
     console.log(`${chn.id} | ${chn.platform} | ${chn.name}`);
   }
 
-  // 2) Đọc hội thoại chưa đọc của kênh đầu tiên
+  // 2) Read unread conversations of the first channel / Đọc hội thoại chưa đọc của kênh đầu tiên
   const channelId = channels.data?.[0]?.id;
   if (!channelId) return;
   const convs = await omni.conversations.list({ channel_id: channelId, unread_first: true, per_page: 20 });
 
-  // 3) Trả lời hội thoại đầu tiên
+  // 3) Reply to the first conversation / Trả lời hội thoại đầu tiên
   const conv = convs.data?.[0];
   if (conv) {
     try {
@@ -38,7 +38,7 @@ async function main() {
     }
   }
 
-  // 4) Thống kê theo kênh trong tháng
+  // 4) Channel statistics for the month / Thống kê theo kênh trong tháng
   const stats = await omni.stats.channels("2026-10-01", "2026-10-31");
   console.log("Thống kê kênh:", JSON.stringify(stats.data));
 }

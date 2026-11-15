@@ -1,8 +1,12 @@
-# Phân trang & Rate limit
+# Pagination & rate limiting
 
-## Phân trang theo con trỏ (cursor)
+> **English** | [Tiếng Việt](rate-limiting.vi.md)
 
-Dùng cho `conversations` và `messages`. Lần đầu không truyền `cursor`; các lần sau truyền lại `next_cursor` cho tới khi `has_more` là `false`.
+---
+
+## Cursor pagination
+
+Used for `conversations` and `messages`. Omit `cursor` on the first call; pass back `next_cursor` on subsequent calls until `has_more` is `false`.
 
 ```python
 cursor = None
@@ -16,29 +20,29 @@ while True:
     cursor = pg["next_cursor"]
 ```
 
-Tiện ích có sẵn: `omni.conversations.iterate(...)` (Python) và `for await (const c of omni.conversations.iterate(...))` (Node) tự duyệt toàn bộ.
+Built-in helpers: `omni.conversations.iterate(...)` (Python) and `for await (const c of omni.conversations.iterate(...))` (Node) walk every page for you.
 
-## Phân trang theo trang
+## Page pagination
 
-Dùng cho `channels`, `customers`, `orders`, `posts`, `call-logs`.
+Used for `channels`, `customers`, `orders`, `posts`, `call-logs`.
 
-| Tham số | Mặc định | Mô tả |
+| Parameter | Default | Description |
 |---|---|---|
-| `page` | 1 | Số thứ tự trang |
-| `per_page` | 50 | Số bản ghi mỗi trang (tối đa 100; một số endpoint tối đa 30/60) |
+| `page` | 1 | Page number |
+| `per_page` | 50 | Records per page (max 100; some endpoints cap at 30/60) |
 
-## Giới hạn tần suất
+## Rate limits
 
-| Loại | Giới hạn | Header |
+| Type | Limit | Header |
 |---|---|---|
-| Mặc định mỗi token | 120 req/phút | `X-RateLimit-Limit: 120` |
-| Gửi tin mỗi kênh | 20 tin/giây | `X-RateLimit-Limit: 20` |
-| Sandbox | 60 req/phút | `X-RateLimit-Limit: 60` |
+| Default per token | 120 req/min | `X-RateLimit-Limit: 120` |
+| Messages per channel | 20 msg/sec | `X-RateLimit-Limit: 20` |
+| Sandbox | 60 req/min | `X-RateLimit-Limit: 60` |
 
-Khi vượt hạn mức, API trả HTTP `429` kèm header `Retry-After` (số giây) và Envelope:
+When you exceed a quota, the API returns HTTP `429` with a `Retry-After` header (seconds) and an envelope:
 
 ```json
 { "status": "error", "code": "TOO_MANY_REQUESTS", "message": "...", "retry_after": 18 }
 ```
 
-SDK tự đợi theo `Retry-After` rồi thử lại (trong giới hạn `max_retries`). Ngoại lệ `RateLimitError` cũng cung cấp `retry_after` để bạn tự điều tiết nếu cần.
+The SDK waits for `Retry-After` and retries (within `max_retries`). The `RateLimitError` exception also exposes `retry_after` so you can throttle yourself if needed.

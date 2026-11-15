@@ -1,28 +1,32 @@
 # HiTechCloud Omnichannel — MCP Server
 
-Máy chủ [Model Context Protocol](https://modelcontextprotocol.io) cho HiTechCloud Omnichannel API. Cho phép trợ lý AI (Claude, v.v.) đọc hội thoại, gửi tin nhắn, gắn nhãn, phân công, quản lý khách hàng/đơn hàng và xem thống kê.
+> **English** | [Tiếng Việt](README.vi.md)
 
-## Cài đặt
+---
+
+A [Model Context Protocol](https://modelcontextprotocol.io) server for the HiTechCloud Omnichannel API. It lets AI assistants (Claude, etc.) read conversations, send messages, tag, assign, manage customers/orders and view statistics.
+
+## Installation
 
 ```bash
 cd mcp
 npm install
 ```
 
-## Cấu hình
+## Configuration
 
-| Biến môi trường | Mô tả |
+| Environment variable | Description |
 |---|---|
-| `OMNI_ACCESS_TOKEN` | Access token (bắt buộc) |
-| `OMNI_BASE_URL` | Base URL (mặc định `https://omni.hitechcloud.vn`) |
+| `OMNI_ACCESS_TOKEN` | Access token (required) |
+| `OMNI_BASE_URL` | Base URL (default `https://omni.hitechcloud.vn`) |
 
-## Chạy
+## Running
 
 ```bash
 OMNI_ACCESS_TOKEN=YOUR_TOKEN node server.js
 ```
 
-## Khai báo trong Claude Desktop (`claude_desktop_config.json`)
+## Registering in Claude Desktop (`claude_desktop_config.json`)
 
 ```json
 {

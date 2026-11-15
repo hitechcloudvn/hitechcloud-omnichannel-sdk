@@ -1,14 +1,18 @@
-# Tham chiếu API
+# API reference
 
-Host: `https://omni.hitechcloud.vn` · Base path: `/v1` · Xác thực: Bearer token · Định danh: ULID.
+> **English** | [Tiếng Việt](api-reference.vi.md)
 
-Phản hồi theo Envelope thống nhất:
+---
+
+Host: `https://omni.hitechcloud.vn` · Base path: `/v1` · Auth: Bearer token · Identifiers: ULID.
+
+Responses follow a unified envelope:
 
 ```json
 { "status": "success", "data": [], "meta": { "pagination": { "has_more": false } } }
 ```
 
-Bảng dưới liệt kê toàn bộ endpoint và phương thức SDK tương ứng (Python; các ngôn ngữ khác đặt tên tương đương: camelCase cho Node/Java/Go, `->` cho PHP).
+The tables below list every endpoint and the matching SDK method (Python names; other languages use equivalent naming: camelCase for Node/Java/Go, `->` for PHP).
 
 ## Account
 
@@ -43,18 +47,18 @@ Bảng dưới liệt kê toàn bộ endpoint và phương thức SDK tương �
 | POST | `/v1/conversations/{id}/read` | `conversations.mark_read(id)` |
 | POST | `/v1/conversations/{id}/unread` | `conversations.mark_unread(id)` |
 
-## Messages (tiện ích)
+## Messages (helpers)
 
-| Phương thức | Mô tả |
+| Method | Description |
 |---|---|
-| `messages.send_text(id, text)` | Gửi văn bản |
-| `messages.send_image(id, attachment_ids)` | Gửi ảnh đã upload |
-| `messages.reply_comment(id, reply_to_message_id, text)` | Trả lời bình luận công khai |
-| `messages.private_reply(id, reply_to_message_id, text)` | Trả lời riêng |
-| `messages.send_template(id, template_id, params)` | Gửi tin theo mẫu |
-| `messages.history(id, ...)` | Lịch sử tin nhắn |
+| `messages.send_text(id, text)` | Send text |
+| `messages.send_image(id, attachment_ids)` | Send uploaded images |
+| `messages.reply_comment(id, reply_to_message_id, text)` | Reply to a public comment |
+| `messages.private_reply(id, reply_to_message_id, text)` | Send a private reply |
+| `messages.send_template(id, template_id, params)` | Send a templated message |
+| `messages.history(id, ...)` | Message history |
 
-Loại tin (`type`): `text`, `image`, `file`, `comment_reply`, `private_reply`, `template`.
+Message types (`type`): `text`, `image`, `file`, `comment_reply`, `private_reply`, `template`.
 
 ## Media
 
@@ -97,7 +101,7 @@ Loại tin (`type`): `text`, `image`, `file`, `comment_reply`, `private_reply`, 
 | POST | `/v1/webhooks` | `webhooks.create(url, events, channel_ids)` |
 | DELETE | `/v1/webhooks/{id}` | `webhooks.delete(id)` |
 
-## Widget (live chat website)
+## Widget (website live chat)
 
 | Method | Endpoint | SDK |
 |---|---|---|
@@ -124,4 +128,4 @@ Loại tin (`type`): `text`, `image`, `file`, `comment_reply`, `private_reply`, 
 |---|---|---|
 | POST | `/v1/sandbox/simulate/incoming-message` | `sandbox.simulate_incoming_message(channel_id, text, ...)` |
 
-Chi tiết tham số và schema: xem [openapi.json](../openapi.json).
+For parameter details and schemas, see [openapi.json](../openapi.json).
