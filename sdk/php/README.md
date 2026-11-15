@@ -5,7 +5,7 @@ SDK PHP chính thức cho [HiTechCloud Omnichannel API](https://developers.hitec
 ## Cài đặt
 
 ```bash
-composer require hitechcloud-vietnam/omnichannel-sdk
+composer require hitechcloudvn/omnichannel-sdk
 ```
 
 ## Khởi tạo

@@ -34,10 +34,10 @@ dependencies = [
 dev = ["pytest>=7.0", "responses>=0.23"]
 
 [project.urls]
-Homepage = "https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk"
+Homepage = "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk"
 Documentation = "https://developers.hitechcloud.vn"
-Repository = "https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk"
-Issues = "https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/issues"
+Repository = "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk"
+Issues = "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

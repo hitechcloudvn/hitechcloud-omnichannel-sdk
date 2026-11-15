@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	omnichannel "github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go"
+	omnichannel "github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go"
 )
 
 func main() {

@@ -13,7 +13,7 @@ SDK đa ngôn ngữ chính thức cho [HiTechCloud Omnichannel API](https://deve
 ## Liên kết
 
 - [Đặc tả OpenAPI](../openapi.json)
-- [Kho GitHub](https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk)
+- [Kho GitHub](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk)
 - [Tài liệu API](https://developers.hitechcloud.vn/tai-lieu/omnichannel/tong-quan)
 
 ## Thông tin chung
@@ -32,8 +32,8 @@ SDK đa ngôn ngữ chính thức cho [HiTechCloud Omnichannel API](https://deve
 
 | Ngôn ngữ | Gói |
 |---|---|
-| Node.js / TypeScript | `@hitechcloud-vietnam/omnichannel-sdk` (npm) |
+| Node.js / TypeScript | `@hitechcloudvn/omnichannel-sdk` (npm) |
 | Python | `hitechcloud-omnichannel` (PyPI) |
-| PHP | `hitechcloud-vietnam/omnichannel-sdk` (Composer) |
-| Go | `github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go` |
+| PHP | `hitechcloudvn/omnichannel-sdk` (Composer) |
+| Go | `github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go` |
 | Java | `vn.hitechcloud:omnichannel-sdk` (Maven) |

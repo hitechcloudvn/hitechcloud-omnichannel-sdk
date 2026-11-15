@@ -1,5 +1,5 @@
 {
-  "name": "@hitechcloud-vietnam/omnichannel-mcp-server",
+  "name": "@hitechcloudvn/omnichannel-mcp-server",
   "version": "1.0.0",
   "description": "MCP server cho HiTechCloud Omnichannel API",
   "main": "server.js",
@@ -15,5 +15,15 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"
-  }
+  },
+  "homepage": "https://developers.hitechcloud.vn/tai-lieu/omnichannel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/issues"
+  },
+  "author": "HiTechCloud Vietnam <support@hitechcloud.vn>"
 }

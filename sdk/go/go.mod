@@ -1,3 +1,3 @@
-module github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go
+module github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
 
 go 1.21

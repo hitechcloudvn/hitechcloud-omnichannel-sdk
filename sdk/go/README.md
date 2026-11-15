@@ -5,11 +5,11 @@ SDK Go chính thức cho [HiTechCloud Omnichannel API](https://developers.hitech
 ## Cài đặt
 
 ```bash
-go get github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go
+go get github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
 ```
 
 ```go
-import omnichannel "github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go"
+import omnichannel "github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go"
 ```
 
 ## Khởi tạo

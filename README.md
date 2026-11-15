@@ -1,5 +1,8 @@
 # HiTechCloud Omnichannel SDK
 
+[![CI](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > SDK đa ngôn ngữ chính thức cho [HiTechCloud Omnichannel API](https://developers.hitechcloud.vn) — gom hội thoại **Facebook, Instagram, Zalo, TikTok, Website** vào một REST API hợp nhất: đọc, trả lời, gắn nhãn, phân công nhân viên, chốt đơn và nhận webhook thời gian thực.
 
 ## Tổng quan
@@ -20,10 +23,10 @@ Thay vì tích hợp riêng lẻ Graph API của Facebook, Zalo OA API, TikTok B
 
 | Ngôn ngữ | Gói | Đường dẫn |
 |---|---|---|
-| Node.js / TypeScript | `@hitechcloud-vietnam/omnichannel-sdk` (npm) | [`sdk/nodejs`](sdk/nodejs) |
+| Node.js / TypeScript | `@hitechcloudvn/omnichannel-sdk` (npm) | [`sdk/nodejs`](sdk/nodejs) |
 | Python | `hitechcloud-omnichannel` (PyPI) | [`sdk/python`](sdk/python) |
-| PHP | `hitechcloud-vietnam/omnichannel-sdk` (Composer) | [`sdk/php`](sdk/php) |
-| Go | `github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go` | [`sdk/go`](sdk/go) |
+| PHP | `hitechcloudvn/omnichannel-sdk` (Composer) | [`sdk/php`](sdk/php) |
+| Go | `github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go` | [`sdk/go`](sdk/go) |
 | Java | `vn.hitechcloud:omnichannel-sdk` (Maven) | [`sdk/java`](sdk/java) |
 
 ## Nhóm tài nguyên
@@ -34,7 +37,7 @@ Thay vì tích hợp riêng lẻ Graph API của Facebook, Zalo OA API, TikTok B
 
 ### Node.js / TypeScript
 ```ts
-import { Omnichannel } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { Omnichannel } from "@hitechcloudvn/omnichannel-sdk";
 
 const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN! });
 const channels = await omni.channels.list({ platform: "facebook" });
@@ -73,7 +76,7 @@ omni.messages().sendText("cnv_01HZABCDEF", "Chào anh/chị!", null);
 Mọi request webhook mang header `X-HTC-Signature` là HMAC-SHA256 của thân request, ký bằng `signing_secret`. Mỗi SDK có hàm xác minh sẵn:
 
 ```ts
-import { verifySignature } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { verifySignature } from "@hitechcloudvn/omnichannel-sdk";
 if (!verifySignature(rawBody, req.header("X-HTC-Signature"), SIGNING_SECRET)) { /* 400 */ }
 ```
 

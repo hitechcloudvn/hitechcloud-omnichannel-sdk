@@ -1,5 +1,5 @@
 {
-  "name": "@hitechcloud-vietnam/omnichannel-sdk",
+  "name": "@hitechcloudvn/omnichannel-sdk",
   "version": "1.0.0",
   "description": "SDK TypeScript chính thức cho HiTechCloud Omnichannel API (hội thoại đa kênh)",
   "main": "dist/index.js",
@@ -31,7 +31,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk.git"
+    "url": "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk.git",
+    "directory": "sdk/nodejs"
   },
   "homepage": "https://developers.hitechcloud.vn",
   "engines": {
@@ -40,5 +41,8 @@
   "devDependencies": {
     "typescript": "^5.4.0",
     "@types/node": "^20.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/issues"
   }
 }

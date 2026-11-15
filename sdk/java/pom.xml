@@ -11,7 +11,7 @@
 
     <name>HiTechCloud Omnichannel Java SDK</name>
     <description>SDK Java chính thức cho HiTechCloud Omnichannel API (hội thoại đa kênh)</description>
-    <url>https://github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk</url>
+    <url>https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk</url>
 
     <licenses>
         <license>
@@ -19,6 +19,12 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk.git</connection>
+        <developerConnection>scm:git:https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk.git</developerConnection>
+        <url>https://github.com/hitechcloudvn/hitechcloud-omnichannel-sdk</url>
+    </scm>
+
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

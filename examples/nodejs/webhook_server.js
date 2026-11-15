@@ -7,7 +7,7 @@
  *   node webhook_server.js
  */
 const http = require("http");
-const { verifySignature } = require("@hitechcloud-vietnam/omnichannel-sdk");
+const { verifySignature } = require("@hitechcloudvn/omnichannel-sdk");
 
 const SIGNING_SECRET = process.env.SIGNING_SECRET || "";
 const seen = new Set(); // chống xử lý trùng theo event_id (at-least-once)

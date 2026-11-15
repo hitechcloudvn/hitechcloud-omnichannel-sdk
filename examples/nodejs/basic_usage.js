@@ -6,7 +6,7 @@
  *   export OMNI_ACCESS_TOKEN=your-access-token
  *   node basic_usage.js
  */
-const { Omnichannel, MessagingWindowClosedError } = require("@hitechcloud-vietnam/omnichannel-sdk");
+const { Omnichannel, MessagingWindowClosedError } = require("@hitechcloudvn/omnichannel-sdk");
 
 async function main() {
   const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN });

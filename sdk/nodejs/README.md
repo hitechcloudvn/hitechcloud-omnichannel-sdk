@@ -5,7 +5,7 @@ SDK TypeScript chính thức cho [HiTechCloud Omnichannel API](https://developer
 ## Cài đặt
 
 ```bash
-npm install @hitechcloud-vietnam/omnichannel-sdk
+npm install @hitechcloudvn/omnichannel-sdk
 ```
 
 Yêu cầu Node.js >= 18 (dùng `fetch` và `FormData` sẵn có).
@@ -13,7 +13,7 @@ Yêu cầu Node.js >= 18 (dùng `fetch` và `FormData` sẵn có).
 ## Khởi tạo
 
 ```ts
-import { Omnichannel } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { Omnichannel } from "@hitechcloudvn/omnichannel-sdk";
 
 const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN! });
 // Sandbox: new Omnichannel({ accessToken: "...", sandbox: true })
@@ -57,7 +57,7 @@ for await (const conv of omni.conversations.iterate({ channel_id: "chn_01HZX8QWE
 
 ```ts
 import express from "express";
-import { verifySignature } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { verifySignature } from "@hitechcloudvn/omnichannel-sdk";
 
 const app = express();
 app.post("/htc/webhook", express.raw({ type: "*/*" }), (req, res) => {
@@ -75,7 +75,7 @@ app.post("/htc/webhook", express.raw({ type: "*/*" }), (req, res) => {
 ## Xử lý lỗi
 
 ```ts
-import { RateLimitError, MessagingWindowClosedError } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { RateLimitError, MessagingWindowClosedError } from "@hitechcloudvn/omnichannel-sdk";
 
 try {
   await omni.messages.sendText("cnv_01HZABCDEF", "...");

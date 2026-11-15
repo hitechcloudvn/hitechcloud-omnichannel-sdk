@@ -15,7 +15,7 @@ Hướng dẫn này giúp bạn đi từ số 0 đến khi gửi được một 
 
 ### Node.js / TypeScript
 ```bash
-npm install @hitechcloud-vietnam/omnichannel-sdk
+npm install @hitechcloudvn/omnichannel-sdk
 ```
 
 ### Python
@@ -25,12 +25,12 @@ pip install hitechcloud-omnichannel
 
 ### PHP
 ```bash
-composer require hitechcloud-vietnam/omnichannel-sdk
+composer require hitechcloudvn/omnichannel-sdk
 ```
 
 ### Go
 ```bash
-go get github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go
+go get github.com/hitechcloudvn/hitechcloud-omnichannel-sdk/go
 ```
 
 ### Java (Maven)
@@ -46,7 +46,7 @@ go get github.com/hitechcloud-vietnam/hitechcloud-omnichannel-sdk/go
 
 ### Node.js
 ```ts
-import { Omnichannel } from "@hitechcloud-vietnam/omnichannel-sdk";
+import { Omnichannel } from "@hitechcloudvn/omnichannel-sdk";
 
 const omni = new Omnichannel({ accessToken: process.env.OMNI_ACCESS_TOKEN! });
 const channels = await omni.channels.list({ platform: "facebook" });
